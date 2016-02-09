@@ -1,6 +1,6 @@
 # UTMmgr
 
-EGAIS UTM Manager is fronend (user side) and backend (UTM side) software based on Node.JS
+EGAIS UTM Manager is frontend (user side) and backend (UTM side) software based on Node.JS
 
 
 ## Start:

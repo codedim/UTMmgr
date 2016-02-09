@@ -251,7 +251,7 @@ function addOrgIntoPage(inn) {
 //  deletes org with 'inn' from ORG_PAGEFILE and from 'org\' dir
 function deleteOrg(inn) {
 	var text = readFile(ORG_PAGEFILE);
-	var rexp = new RegExp('^<tr.*inn">' + inn + '.*\r\n.*\r\n.*tr>\r\n', 'mig');
+	var rexp = new RegExp('^<tr class.*inn">' + inn + '.*\r\n.*\r\n.*tr>\r\n', 'mig');
 	if (!testRegExp(rexp, text)) 
 		return;
 	text = text.replace(rexp, '');
@@ -394,8 +394,11 @@ function getUtmStatus() {
 		// if UTM state is OK, search for new docs..
 		var docs = body.match(/<url.*url>/ig);
 		// the last handled document ID must be in OPTOUT_DATFILE
-		var text = readFile(OPTOUT_DATFILE);
-		var lastDoc = text.match(/<url replyId=".{36}">/i)[0];
+		if (isFileExists(DOCS_PATH + '/' + OPTOUT_DATFILE)) {
+			var text = readFile(OPTOUT_DATFILE);
+			var lastDoc = text.match(/<url replyId=".{36}">/i);
+			if (lastDoc) lastDoc = lastDoc[0];
+		}
 		if (lastDoc) {
 			// OPTOUT_DATFILE consists the last handled doc, 
 			// now we have to search it in '/opt/out' dir
