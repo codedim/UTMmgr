@@ -1,0 +1,26 @@
+
+body { font-family: Tahoma, Arial; padding: 0; margin: 0 }
+b { color: #222 }
+form { color: #448 }
+table { color: #111 }
+tr#main { color: #11a }
+th, td { padding: 4px }
+h2 { color: #800 }
+h3 { color: #333 }
+h4 { color: #333 }
+a:link    { text-decoration: none; color: #228 } 
+a:visited { text-decoration: none; color: #228 } 
+a:active  { text-decoration: none; }
+a:hover { text-decoration: none; color: #008 }
+div.help { position: absolute; top: 5px; right: 10px }
+div#wrapper { margin: 0 8px; padding: 0 }
+div#footer { position: fixed; bottom: 0px; width: 100%; height: 24px; margin-top: 30px;
+	background-color: #333; color: #eee; font-weight: bold }
+div#footer a:link    { text-decoration: none; color: #99e } 
+div#footer a:visited { text-decoration: none; color: #99e } 
+div#footer a:hover   { text-decoration: none; color: #00f }
+div#reqstatus { float: left; margin: 1px 8px; max-width: 45% }
+div#utmstatus { float: right; margin: 1px 8px; max-width: 45% }
+span.ok  { font-weight: bold; background-color: #333; color: #3f3 }
+span.err { font-weight: bold; background-color: #333; color: #f33 }
+

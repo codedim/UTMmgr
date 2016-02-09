@@ -1,0 +1,63 @@
+
+function call queue - in order to add new organization:
+_____________________________________________________________________________________________
+
+:user initialized:
+
+	addOrgIntoPage(queryData.inn); 
+	// adds new <tr> table line into ORG_PAGEFILE
+
+	queryOrgByINN(queryData.inn);  
+	// queries org by 'inn' from UTM service
+
+		postFileRequest(QUERYURL, 'xml_file', path + '.tmp');
+		// sends the 'fname' to 'rhost' as POST form-data request
+
+		... async delay ...
+
+		postFileRequestCallback(err, res, body);
+		// callback
+
+			testUtmResponse(body);
+			// tests response from UTM
+
+				setRequestStatus(resultStr);
+				// sets the user request part of status line
+					
+:timer initialized:
+
+		... 2000ms delay ...
+
+		getUtmStatus(); 
+		// refreshes OPTOUT_DATFILE file with last-known doc string
+
+			testUtmReq.get(OPTOUTLINK, functionCallback)
+			// sends OPTOUTLINK get request to UTM 
+
+			... async delay ...
+
+			functionCallback(err, res, body);
+			// callback - searches for a new doc(s)
+
+				handleUtmDoc(docs[doc]);
+				// gets new doc xml-data from UTM by url
+
+				... async delay ...
+
+
+				handleUtmDocCallback(err, res, body);
+				// callback - performs required operation with new doc
+
+					
+					writeFile('org/INN.xml', ...);
+					// creates xmlfile of new org
+
+					
+					rebuildOrgPage(inn);
+					// rebuilds org webpage with xmlfile data
+
+
+
+
+
+	

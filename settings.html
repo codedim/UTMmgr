@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head>
+<title>UTM Manager - Settings</title>
+<meta charset="utf-8"><link rel="stylesheet" href="style.css">
+<script type="application/javascript" src="common.js"></script>
+<script>
+function validate() {
+	var inn = document.ownerform.inn.value;
+	var fsrarid = document.ownerform.fsrarid.value;
+
+	if ( !((inn.length == 10) || (inn.length == 12)) ) {
+		alert("Поле 'ИНН' должно содержать 10 или 12 символов.");
+		return false;
+	} else if ( !isNumber(inn, 0, "ИНН") || 
+		!isNumber(fsrarid, 12, "FSRAR ID") ) {
+			return false;
+	}
+
+	return validateNewOrg(inn);
+}
+</script>
+</head><body><div id="wrapper">
+<h2>UTM Manager</h2>
+<div class="help"><h4><a href="help.html#settigs">Справка</a></h4></div>
+<h4><a href="../">Главная</a> / Настройки</h4><hr>
+<form name="ownerform" action="settings.html" onsubmit="return validate()">
+<p>ИНН:<br> <input type="text" maxlength="12" name="inn" value="">
+<p>FSRAR ID:<br> <input type="text" maxlength="12" name="fsrarid" value="">
+<p><input type="submit" value="Сохранить" >
+</form>
+
+<p>&nbsp;</div><div id="footer"></div>
+<script type="text/javascript">loadStatus();</script>
+</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head>
+<title>UTM Manager - Adding Organization</title>
+<meta charset="utf-8"><link rel="stylesheet" href="style.css">
+<script type="application/javascript" src="common.js"></script>
+<script>
+function validate() {
+	var inn = document.orgform.inn.value;
+	if ( !((inn.length == 10) || (inn.length == 12)) ) {
+		alert("Поле 'ИНН' должно содержать 10 или 12 символов.");
+		return false;
+	}
+	return isNumber(inn, 0, "ИНН");
+}
+</script>
+</head><body><div id="wrapper">
+<h2>UTM Manager</h2>
+<h4><a href="../">Главная</a> / <a href="contragents.html">Контрагенты</a> / 
+ Добавление организации</h4><hr>
+<form name="orgform" action="addorg.html" onsubmit="return validate()">
+<p>ИНН: <input type="text" maxlength="12" name="inn" value="">
+<p><input type="submit" value="Запросить данные в ЕГАИС" >
+</form>
+
+<p>&nbsp;</div><div id="footer"></div>
+<script type="text/javascript">loadStatus();</script>
+</body></html>
